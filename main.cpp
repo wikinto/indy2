@@ -7,7 +7,7 @@ char scorechar[16];
 char tmchar[16];
 int quant;
 int score;
-int tm = 15;
+int tm = 20;
 bool isgen;
 float posX[10];
 float posY[10];
@@ -43,9 +43,6 @@ void kboard (unsigned char key, int xmouse, int ymouse)
 		case 's':
 			ply.y -= ply.speed;
 			break;
-		case 'r': 
-			glClearColor (0.0, 1.0, 0.0, 0.0);
-		break;
 
 		default:
          break;
@@ -118,7 +115,7 @@ int scorepoint(float x, float y, float size){
     glEnd();
     glPopMatrix();  
 }
-// Collision Detection
+
 int collision(float x, float y, float width, float height, float x1, float y1, float width1,
               float height1) {
     
@@ -205,6 +202,7 @@ void timer(int value){
 }
 
 int main(int argc, char** argv) {
+    srand (time(NULL));
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE);
 	glutInitWindowSize(800, 800);
