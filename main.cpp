@@ -1,3 +1,6 @@
+#ifdef WIN32
+    #include<windows.h>
+#endif
 #include <GL/glut.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,7 +73,7 @@ int scorepoint(float x, float y, float size){
     glPushMatrix();
 
     glTranslatef(x, y, 0.0f);
-    r+=0.6;
+    r+=0.01;
     glRotatef(r,1,0.5f,0);
     
     glBegin(GL_POLYGON);
@@ -202,7 +205,12 @@ void timer(int value){
 }
 
 int main(int argc, char** argv) {
+    #ifdef WIN32
+    ::srand( GetTickCount() );
+    #else
     srand (time(NULL));
+    #endif
+    
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE);
 	glutInitWindowSize(800, 800);
