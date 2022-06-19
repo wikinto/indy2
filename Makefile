@@ -4,7 +4,7 @@ HEADER	=
 OUT	= main
 CC	 = g++
 FLAGS	 = -g -c -Wall
-LFLAGS	 = -lm -lGL -L/usr/X11R6/lib -lGLU -lglut -lGLEW -lXi -lXmu
+LFLAGS	 = -lm -lGL -L/usr/X11R6/lib -lGLU -lglut -lGLEW 
 
 all: $(OBJS)
 	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)

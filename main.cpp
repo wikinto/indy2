@@ -73,7 +73,12 @@ int scorepoint(float x, float y, float size){
     glPushMatrix();
 
     glTranslatef(x, y, 0.0f);
-    r+=0.01;
+    #ifdef WIN32
+        r+=0.01;
+    #else
+        r+=0.05;
+    #endif
+    
     glRotatef(r,1,0.5f,0);
     
     glBegin(GL_POLYGON);
